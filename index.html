@@ -88,7 +88,7 @@
         const input = event.target;
         h1.innerText = input.value;
       };
-
+      // should be done with newTitle not event
       /* EXERCISE 2
      Write a function for changing the class of the title of the page in "myHeading".
     */
@@ -97,6 +97,7 @@
         for (let node of document.getElementsByTagName("h1")) {
           node.classList.toggle("myHeading");
         }
+        // document.querySelector("h1").classList.add("myHeading") - better way
       };
 
       /* EXERCISE 3
@@ -104,9 +105,10 @@
     */
 
       const changePcontent = function (event) {
-        p = document.querySelector("div > p");
-        const input = event.target;
-        p.innerText = input.value;
+        const p = document.querySelectorAll("div>p");
+        for (let para of p) {
+          para.innerText = "new message";
+        }
       };
 
       /* EXERCISE 4
@@ -114,8 +116,10 @@
     */
 
       const changeUrls = function () {
-        let element = document.getElementById("alink");
-        element.setAttribute("href", "https://www.google.com");
+        let element = document.querySelectorAll("a");
+        for (let anchor of element) {
+          anchor.href = "https://www.google.com";
+        }
       };
 
       /* EXERCISE 5
@@ -129,7 +133,12 @@
         newLi.innerText = input.value;
         secondList.appendChild(newLi);
       };
-
+      // another way :
+      /* const addToTheSecond = function (changeContent1) {
+        let ulNode = document.querySelectorAll("ul")[1]
+        let li = document.createElement("li")
+        li.innerText = changeContent1 
+        ulNode.appendChild(li)
       /* EXERCISE 6
      Write a function for adding a second paragraph to the first div.
     */
