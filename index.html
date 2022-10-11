@@ -138,7 +138,7 @@
         let ulNode = document.querySelectorAll("ul")[1]
         let li = document.createElement("li")
         li.innerText = changeContent1 
-        ulNode.appendChild(li)
+        ulNode.appendChild(li) */
       /* EXERCISE 6
      Write a function for adding a second paragraph to the first div.
     */
@@ -180,7 +180,20 @@
         event.currentTarget.style.backgroundColor =
           "rgb(" + red + ", " + green + ", " + blue + ")";
       };
+      /* other way : 
+      const getRandomNumber = function() {
+        return Math.floor(Math.random() * 256);
+      }
+      const getRandomColor = function() {
+        return `rgb(${getRandomNumber()}),${getRandomNumber()},${getRandomNumber()})`
+      }
+      const makeItClickable = function() {
+        let titleNode = document.getElementsByTagName("h1")[0]
 
+        titleNode.addEventListener("click", () => {
+          titleNode.style.color = getRandomColor()
+        })
+      } */
       /* EXERCISE 10
      Change the footer text with something else when the user clicks on it.
     */
@@ -188,13 +201,22 @@
       const changeFooterText = function (event) {
         event.currentTarget.innerText = "Something else";
       };
-
+      /* const changeFooterText = function() {
+        const footerNodes = document[footerNodes.length - 1]
+        console.log(footerNode)
+        footerNode.addEvenListener("click", () =>{
+          footerNode.innerText = "this is something else"
+        })
+      }
       /* EXERCISE 11
      Attach an event listener to the input field in the page that changes the text of the page's subtitle
     */
-
+      let h2Node = document.querySelector("h2");
       const inputField = document.getElementById("input-field");
-      // ...
+      inputField.addEventListener("keyup", (event) => {
+        let text = event.target.value;
+        h2Node.innerText = text;
+      });
 
       /* EXERCISE 11
      Attach an event listener to the input field in the page that changes the text of the page's subtitle
